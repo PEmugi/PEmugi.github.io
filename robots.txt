@@ -1,0 +1,4 @@
+Sitemap: https://chizuwota.net/sitemapindex.xml
+
+User-Agent: *
+Host: chizuwota.net
