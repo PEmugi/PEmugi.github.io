@@ -7,59 +7,34 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://chizuwota.net/</loc>
-  <lastmod>2021-08-21T11:25:00Z</lastmod>
- </url>
- <url>
-  <loc>https://chizuwota.net/2021/</loc>
-  <lastmod>2021-08-21T07:13:00Z</lastmod>
+  <lastmod>2021-08-21T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/archive.html</loc>
-  <lastmod>2021-08-21T09:36:00Z</lastmod>
+  <lastmod>2021-08-21T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/blog/</loc>
-  <lastmod>2021-08-21T08:16:00Z</lastmod>
- </url>
- <url>
-  <loc>https://chizuwota.net/blog/test1/</loc>
-  <lastmod>2021-08-21T08:16:00Z</lastmod>
+  <lastmod>2021-08-21T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/</loc>
-  <lastmod>2021-08-21T07:14:00Z</lastmod>
- </url>
- <url>
-  <loc>https://chizuwota.net/categories/hoge/</loc>
-  <lastmod>2021-08-21T07:14:00Z</lastmod>
+  <lastmod>2021-08-21T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/</loc>
-  <lastmod>2021-08-21T08:16:00Z</lastmod>
- </url>
- <url>
-  <loc>https://chizuwota.net/en/2021/</loc>
-  <lastmod>2021-08-21T07:13:00Z</lastmod>
+  <lastmod>2021-08-21T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/archive.html</loc>
-  <lastmod>2021-08-21T09:36:00Z</lastmod>
+  <lastmod>2021-08-21T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/blog/</loc>
-  <lastmod>2021-08-21T08:16:00Z</lastmod>
- </url>
- <url>
-  <loc>https://chizuwota.net/en/blog/test1/</loc>
-  <lastmod>2021-08-21T08:16:00Z</lastmod>
-  <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/blog/test1/" />
+  <lastmod>2021-08-21T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/</loc>
-  <lastmod>2021-08-21T07:14:00Z</lastmod>
- </url>
- <url>
-  <loc>https://chizuwota.net/en/categories/hoge/</loc>
-  <lastmod>2021-08-21T07:14:00Z</lastmod>
+  <lastmod>2021-08-21T11:35:00Z</lastmod>
  </url>
 </urlset>
