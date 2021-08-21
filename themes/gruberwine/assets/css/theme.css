@@ -67,7 +67,7 @@ html
 	min-height: 100%;
 	position: relative;
 	/* Scalable font size. */
-	font-size: min(max(1rem, 5vw), 22px);
+	font-size: min(max(1rem, 5vw), 15px);
 	font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
@@ -328,7 +328,7 @@ address
 	.page-content > .content
 	{
 	   	/* Control the line length */
-    	max-width: 70em;
+    	max-width: 100em;
 
     	/* Centre the page content. */
 		margin: 0 auto;
@@ -361,6 +361,9 @@ article.post-text .entry-content .figure
 
 /* More space before headings */
 .page-content .content h2 { margin-top: 1em; }
+
+/* Table padding */
+.page-content > .content td { padding-left: 2em }
 
 /* === Page content Ends here. === */
 

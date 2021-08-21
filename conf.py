@@ -154,14 +154,15 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/index.html', 'Home', 'fa fa-home'),
+        ('/projects/', 'Projects', 'fas fa-globe'),
         ('/blog/', 'Blog', 'fa fa-book'),
         ('/archive.html', 'Blog Archives', 'fa fa-folder-open'),
         ('/categories/index.html', 'Blog Tags', 'fa fa-tags'),
-        ('/rss.xml', 'RSS', 'fa fa-rss'),
         # ('https://getnikola.com', 'About me', 'fa fa-user'),
-        ('https://twitter.com/PEmugi2', 'My Twitter', 'fab fa-twitter'),
-        ('https://www.linkedin.com/in/shimpei-matsuura-26974441/', 'My LinkedIn', 'fab fa-linkedin'),
-        ('https://github.com/PEmugk', 'My Github', 'fab fa-github'),
+        ('https://twitter.com/PEmugi2', '', 'fab fa-twitter'),
+        ('https://www.linkedin.com/in/shimpei-matsuura-26974441/', '', 'fab fa-linkedin'),
+        ('https://github.com/PEmugi', '', 'fab fa-github'),
+        ('/rss.xml', '', 'fa fa-rss'),
     )
 }
 
