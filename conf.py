@@ -24,7 +24,7 @@ SITE_URL = "https://chizuwota.net/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://chizuwota.net/"
-# BLOG_EMAIL = "PEmugi@chizuwota.net"
+BLOG_EMAIL = "PEmugi@chizuwota.net"
 BLOG_DESCRIPTION = "This is a web site for chizuwota"  # (translatable)
 
 # Nikola is multilingual!
