@@ -177,7 +177,7 @@ address
 {
 	text-align: center;
 	font-family: "Gill Sans", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-variant: small-caps;
+	/* font-variant: small-caps; */
 	font-size: min(max(10rem, 10vw), 48pt);
 	font-weight: bold;
 	text-decoration: none;
