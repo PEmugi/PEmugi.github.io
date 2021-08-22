@@ -1287,7 +1287,6 @@ MARKDOWN_EXTENSIONS = [
 # before </head>
 # (translatable)
 EXTRA_HEAD_DATA = """
-
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-26157323-5"></script>
 <script>
