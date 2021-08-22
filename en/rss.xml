@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>chizuwota</title><link>https://chizuwota.net/</link><description>This is a web site for chizuwota</description><atom:link href="https://chizuwota.net/en/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:PEmugi@chizuwota.net"&gt;PEmugi&lt;/a&gt; </copyright><lastBuildDate>Sat, 21 Aug 2021 11:35:57 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs></channel></rss>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>chizuwota</title><link>https://chizuwota.net/</link><description>This is a web site for chizuwota</description><atom:link href="https://chizuwota.net/en/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:PEmugi@chizuwota.net"&gt;PEmugi&lt;/a&gt; </copyright><lastBuildDate>Sun, 22 Aug 2021 15:18:34 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Welcom to chizuwota!!</title><link>https://chizuwota.net/en/blog/welcome-to-chizuwota/</link><dc:creator>PEmugi</dc:creator><description>&lt;div&gt;&lt;h3 id="chizuwota"&gt;chizuwota という屋号で開業&lt;/h3&gt;
+&lt;p&gt;1 年ぐらい前から細々と副業するために開業して、個人事業主として活動してました。&lt;/p&gt;
+&lt;p&gt;屋号は chizuwota です。&lt;/p&gt;
+&lt;p&gt;地図オタクとよべるほどの人間ではないけれど、それ以外に取り柄もないし。&lt;/p&gt;
+&lt;p&gt;あと chizuwota.net というドメインは学生時代の2006年から使っていて愛着があったのでそのまま屋号として採用。&lt;/p&gt;
+&lt;h3 id="_1"&gt;情報発信で恩返し&lt;/h3&gt;
+&lt;p&gt;2008 年に株式会社サイバーマップジャパン(-&amp;gt; マピオン -&amp;gt; One Compass に社名変更)に入社してからずっと空間情報を扱うのデータエンジニアやバックエンドエンジニアとして業界にかかわってきました。&lt;/p&gt;
+&lt;p&gt;平凡なエンジニアなんですが、15年も同じ領域でやっていれば多少の蓄積はあるものです。
+いままで情報発信はあまりしてこなかったのですが、40歳目前ですが遅すぎることもないかなと思い、なけなしの知識を発信していければと。&lt;/p&gt;
+&lt;p&gt;そして、空間情報関連の技術がさらにいろんな業界に広がっていくことに超微力ながら貢献できたらなと思ってます。&lt;/p&gt;
+&lt;p&gt;もちろん、個人事業の集客も兼ねていますけどね！&lt;/p&gt;
+&lt;h3 id="nikola"&gt;静的サイトジェネレータ Nikola で作ってるよ&lt;/h3&gt;
+&lt;p&gt;このサイトは &lt;a href="https://getnikola.com/" target="_blank"&gt;Nikola&lt;/a&gt;  という Python で書かれた静的サイトジェネレータで作っています。&lt;/p&gt;
+&lt;p&gt;以下採用理由&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Markdown で書ける&lt;/li&gt;
+&lt;li&gt;開発が活発(2021-08-21 現在)&lt;/li&gt;
+&lt;li&gt;設定がシンプル&lt;/li&gt;
+&lt;li&gt;github pages へのデプロイがコマンド一発&lt;/li&gt;
+&lt;li&gt;github actions も簡単&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><guid>https://chizuwota.net/en/blog/welcome-to-chizuwota/</guid><pubDate>Sun, 22 Aug 2021 13:58:43 GMT</pubDate></item></channel></rss>

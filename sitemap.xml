@@ -7,35 +7,84 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://chizuwota.net/</loc>
-  <lastmod>2021-08-21T15:12:00Z</lastmod>
+  <lastmod>2021-08-22T03:00:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/2021/</loc>
+  <lastmod>2021-08-22T03:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/archive.html</loc>
-  <lastmod>2021-08-22T02:14:00Z</lastmod>
+  <lastmod>2021-08-22T13:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/blog/</loc>
-  <lastmod>2021-08-21T11:35:00Z</lastmod>
+  <lastmod>2021-08-22T13:58:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/blog/nikola-analytics/</loc>
+  <lastmod>2021-08-22T13:42:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/blog/nikola/open-website/</loc>
+  <lastmod>2021-08-22T13:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/blog/welcome-to-chizuwota/</loc>
+  <lastmod>2021-08-22T13:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/</loc>
-  <lastmod>2021-08-21T11:35:00Z</lastmod>
+  <lastmod>2021-08-22T03:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/categories/nikola/</loc>
+  <lastmod>2021-08-22T03:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/categories/web/</loc>
+  <lastmod>2021-08-22T03:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/</loc>
-  <lastmod>2021-08-21T15:12:00Z</lastmod>
+  <lastmod>2021-08-22T03:00:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/2021/</loc>
+  <lastmod>2021-08-22T03:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/archive.html</loc>
-  <lastmod>2021-08-22T02:14:00Z</lastmod>
+  <lastmod>2021-08-22T13:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/blog/</loc>
-  <lastmod>2021-08-21T11:35:00Z</lastmod>
+  <lastmod>2021-08-22T13:58:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/blog/nikola-analytics/</loc>
+  <lastmod>2021-08-22T13:42:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/blog/nikola/open-website/</loc>
+  <lastmod>2021-08-22T13:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/blog/welcome-to-chizuwota/</loc>
+  <lastmod>2021-08-22T13:58:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/blog/welcome-to-chizuwota/" />
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/</loc>
-  <lastmod>2021-08-21T11:35:00Z</lastmod>
+  <lastmod>2021-08-22T03:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/categories/nikola/</loc>
+  <lastmod>2021-08-22T03:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/categories/web/</loc>
+  <lastmod>2021-08-22T03:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/projects/</loc>
