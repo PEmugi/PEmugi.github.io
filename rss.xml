@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>chizuwota</title><link>https://chizuwota.net/</link><description>This is a web site for chizuwota</description><atom:link href="https://chizuwota.net/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2021 &lt;a href="mailto:PEmugi@chizuwota.net"&gt;PEmugi&lt;/a&gt; </copyright><lastBuildDate>Sun, 22 Aug 2021 15:18:34 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Welcom to chizuwota!!</title><link>https://chizuwota.net/blog/welcome-to-chizuwota/</link><dc:creator>PEmugi</dc:creator><description>&lt;div&gt;&lt;h3 id="chizuwota"&gt;chizuwota という屋号で開業&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>chizuwota</title><link>https://chizuwota.net/</link><description>This is a web site for chizuwota</description><atom:link href="https://chizuwota.net/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2021 &lt;a href="mailto:PEmugi@chizuwota.net"&gt;PEmugi&lt;/a&gt; </copyright><lastBuildDate>Sat, 28 Aug 2021 06:14:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>WSL2 の仮想ディスクを圧縮する</title><link>https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/</link><dc:creator>PEmugi</dc:creator><description>&lt;div&gt;&lt;p&gt;WSL2 使っていると、気が付いたらハードディスクの容量を圧迫していたなんてことがよくあります。&lt;/p&gt;
+&lt;p&gt;仮想マシン上で大きなファイルを作成したり、作業をしているうちに当然仮想ディスクのサイズは大きくなりますが、仮想マシン上でファイルを削除し他場合、仮想ディスク内で &lt;code&gt;df -h&lt;/code&gt; などすれば容量が減っていることを確認できるのですが、実は仮想ディスクのファイルそのもののサイズは解放されません。&lt;/p&gt;
+&lt;p&gt;ここでは、肥大化した仮想ディスクのファイルのサイズを解放する方法を紹介します。&lt;/p&gt;
+&lt;h3 id="_1"&gt;目次&lt;/h3&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#_1"&gt;目次&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#_2"&gt;仮想ディスクの確認&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#_3"&gt;私の環境の圧縮前のサイズはこんな感じ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#_4"&gt;仮想ディスクの圧縮&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#1-wsl"&gt;1. WSL の停止&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#_5"&gt;仮想マシンのシャットダウン&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#wsl"&gt;WSL サービスの停止&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#2-diskpart"&gt;2. DISKPART で圧縮&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#3-wsl"&gt;3. WSL サービスの再開&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/#_6"&gt;まとめ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h3 id="_2"&gt;仮想ディスクの確認&lt;/h3&gt;
+&lt;p&gt;WSL2 の仮想マシンのファイルは Microsoft Store からインストールされた Ubuntu であれば以下のパスにあります。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;C:\Users\{USERNAME}\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_xxxxxxxxx\LocalState\ext4.vhdx&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;.vhdx は Windows の Hyper-V の仮想ディスクフォーマットなのかしら...  &lt;/p&gt;
+&lt;div class="admonition tips"&gt;
+&lt;p class="admonition-title"&gt;Tips: Docker Desktop for Windows の場合&lt;/p&gt;
+&lt;p&gt;Docker Desktop の WSL2 バックエンドでも WSL2 の仮想マシンを使いますが、むしろ Docker 仮想マシンの肥大化のがやばいかもしれません。&lt;br&gt;
+イメージビルドの際のキャッシュとかイメージそのもので容量を食べますし。  &lt;/p&gt;
+&lt;p&gt;Docker の WSL2 のディスクイメージは以下にありました。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;C:\Users\{USERNAME}\AppData\Local\Docker\wsl&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h4 id="_3"&gt;私の環境の圧縮前のサイズはこんな感じ&lt;/h4&gt;
+&lt;p&gt;3.6GB ぐらいでしょうか。&lt;br&gt;
+&lt;img alt="" src="https://chizuwota.net/images/posts/wsl/wsl2-vdisk-compression-1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;df -h&lt;/code&gt; の結果は以下なので実際のディスク消費量と 1GB ぐらい差がありそうです。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://chizuwota.net/images/posts/wsl/wsl2-vdisk-compression-2.png"&gt;&lt;/p&gt;
+&lt;h3 id="_4"&gt;仮想ディスクの圧縮&lt;/h3&gt;
+&lt;h4 id="1-wsl"&gt;1. WSL の停止&lt;/h4&gt;
+&lt;p&gt;WSL を止めます。&lt;br&gt;
+仮想マシンを停止した後、念のため WSL のサービスも落とします。&lt;/p&gt;
+&lt;h5 id="_5"&gt;仮想マシンのシャットダウン&lt;/h5&gt;
+&lt;p&gt;PowerShell か Command prompt で以下を実行&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;wsl&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="n"&gt;-shutdown&lt;/span&gt;
+&lt;/pre&gt;
+&lt;h5 id="wsl"&gt;WSL サービスの停止&lt;/h5&gt;
+&lt;p&gt;PowerShell か Command prompt を管理者として実行し、以下コマンドを実行&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;net stop LxssManager
+LxssManager サービスを停止中です.
+LxssManager サービスは正常に停止されました。
+&lt;/pre&gt;
+&lt;h4 id="2-diskpart"&gt;2. DISKPART で圧縮&lt;/h4&gt;
+&lt;p&gt;PowerShell や Command prompt から以下コマンドで DISKPART を起動&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;diskpart
+&lt;/pre&gt;
+&lt;p&gt;起動したら以下コマンドで仮想ディスクを選択します&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;DISKPART&amp;gt; &lt;span class="k"&gt;select&lt;/span&gt; vdisk &lt;span class="nv"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C:\Users\pemugi\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_xxxxxxxxx\LocalState\ext4.vhdx"&lt;/span&gt;
+
+DiskPart により、仮想ディスク ファイルが選択されました。
+&lt;/pre&gt;
+&lt;p&gt;そして圧縮します&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;DISKPART&amp;gt; compact vdisk
+
+  &lt;span class="m"&gt;100&lt;/span&gt;% 完了しました
+DISKPART&amp;gt; &lt;span class="nb"&gt;exit&lt;/span&gt;
+&lt;/pre&gt;
+&lt;h4 id="3-wsl"&gt;3. WSL サービスの再開&lt;/h4&gt;
+&lt;p&gt;PowerShell か Command prompt を管理者として実行し、以下コマンドを実行&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;net start LxssManager
+&lt;/pre&gt;
+&lt;h3 id="_6"&gt;まとめ&lt;/h3&gt;
+&lt;p&gt;DISKPART を使って vhdx を圧縮する方法を紹介しました。&lt;br&gt;
+Webエンジニアやバックエンドエンジニアの開発環境は、ここしばらく Mac が優勢ですが、今後 Windows + WSL2 な人も増えてきそうかな？&lt;/p&gt;
+&lt;p&gt;WSL や Docker Desktop for Windows (WSL2) を使ってて、仮想ディスクの容量に困ったら試してみてくださいませ～。&lt;/p&gt;&lt;/div&gt;</description><guid>https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/</guid><pubDate>Wed, 25 Aug 2021 16:33:36 GMT</pubDate></item><item><title>Welcom to chizuwota!!</title><link>https://chizuwota.net/blog/welcome-to-chizuwota/</link><dc:creator>PEmugi</dc:creator><description>&lt;div&gt;&lt;h3 id="chizuwota"&gt;chizuwota という屋号で開業&lt;/h3&gt;
 &lt;p&gt;1 年ぐらい前から細々と副業するために開業して、個人事業主として活動してました。&lt;/p&gt;
 &lt;p&gt;屋号は chizuwota です。&lt;/p&gt;
 &lt;p&gt;地図オタクとよべるほどの人間ではないけれど、それ以外に取り柄もないし。&lt;/p&gt;

@@ -99,7 +99,101 @@
     
     
 <div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="welcome-to-chizuwota/" class="u-url">Welcom to chizuwota!!</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="wsl/wsl2-vdisk-compression/" class="u-url">WSL2 の仮想ディスクを圧縮する</a></h1>
+
+        
+        <div class="metadata">
+            <p class="dateline"><a href="wsl/wsl2-vdisk-compression/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-08-26T01:33:36+09:00" title="2021-08-26 01:33">2021-08-26 01:33</time></a></p>
+
+                <p class="commentline"><i class="fa fa-comment"></i>             <a href="wsl/wsl2-vdisk-compression/#disqus_thread" data-disqus-identifier="cache/posts/wsl/wsl2-vdisk-compression.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>WSL2 使っていると、気が付いたらハードディスクの容量を圧迫していたなんてことがよくあります。</p>
+<p>仮想マシン上で大きなファイルを作成したり、作業をしているうちに当然仮想ディスクのサイズは大きくなりますが、仮想マシン上でファイルを削除し他場合、仮想ディスク内で <code>df -h</code> などすれば容量が減っていることを確認できるのですが、実は仮想ディスクのファイルそのもののサイズは解放されません。</p>
+<p>ここでは、肥大化した仮想ディスクのファイルのサイズを解放する方法を紹介します。</p>
+<h3 id="_1">目次</h3>
+<div class="toc">
+<ul>
+<li><a href="wsl/wsl2-vdisk-compression/#_1">目次</a></li>
+<li>
+<a href="wsl/wsl2-vdisk-compression/#_2">仮想ディスクの確認</a><ul>
+<li><a href="wsl/wsl2-vdisk-compression/#_3">私の環境の圧縮前のサイズはこんな感じ</a></li>
+</ul>
+</li>
+<li>
+<a href="wsl/wsl2-vdisk-compression/#_4">仮想ディスクの圧縮</a><ul>
+<li>
+<a href="wsl/wsl2-vdisk-compression/#1-wsl">1. WSL の停止</a><ul>
+<li><a href="wsl/wsl2-vdisk-compression/#_5">仮想マシンのシャットダウン</a></li>
+<li><a href="wsl/wsl2-vdisk-compression/#wsl">WSL サービスの停止</a></li>
+</ul>
+</li>
+<li><a href="wsl/wsl2-vdisk-compression/#2-diskpart">2. DISKPART で圧縮</a></li>
+<li><a href="wsl/wsl2-vdisk-compression/#3-wsl">3. WSL サービスの再開</a></li>
+</ul>
+</li>
+<li><a href="wsl/wsl2-vdisk-compression/#_6">まとめ</a></li>
+</ul>
+</div>
+<h3 id="_2">仮想ディスクの確認</h3>
+<p>WSL2 の仮想マシンのファイルは Microsoft Store からインストールされた Ubuntu であれば以下のパスにあります。</p>
+<p><code>C:\Users\{USERNAME}\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_xxxxxxxxx\LocalState\ext4.vhdx</code></p>
+<p>.vhdx は Windows の Hyper-V の仮想ディスクフォーマットなのかしら...  </p>
+<div class="admonition tips">
+<p class="admonition-title">Tips: Docker Desktop for Windows の場合</p>
+<p>Docker Desktop の WSL2 バックエンドでも WSL2 の仮想マシンを使いますが、むしろ Docker 仮想マシンの肥大化のがやばいかもしれません。<br>
+イメージビルドの際のキャッシュとかイメージそのもので容量を食べますし。  </p>
+<p>Docker の WSL2 のディスクイメージは以下にありました。</p>
+<p><code>C:\Users\{USERNAME}\AppData\Local\Docker\wsl</code></p>
+</div>
+<h4 id="_3">私の環境の圧縮前のサイズはこんな感じ</h4>
+<p>3.6GB ぐらいでしょうか。<br><img alt="" src="../../images/posts/wsl/wsl2-vdisk-compression-1.png"></p>
+<p><code>df -h</code> の結果は以下なので実際のディスク消費量と 1GB ぐらい差がありそうです。</p>
+<p><img alt="" src="../../images/posts/wsl/wsl2-vdisk-compression-2.png"></p>
+<h3 id="_4">仮想ディスクの圧縮</h3>
+<h4 id="1-wsl">1. WSL の停止</h4>
+<p>WSL を止めます。<br>
+仮想マシンを停止した後、念のため WSL のサービスも落とします。</p>
+<h5 id="_5">仮想マシンのシャットダウン</h5>
+<p>PowerShell か Command prompt で以下を実行</p>
+<pre class="code literal-block"><span class="n">wsl</span> <span class="p">-</span><span class="n">-shutdown</span>
+</pre>
+<h5 id="wsl">WSL サービスの停止</h5>
+<p>PowerShell か Command prompt を管理者として実行し、以下コマンドを実行</p>
+<pre class="code literal-block">net stop LxssManager
+LxssManager サービスを停止中です.
+LxssManager サービスは正常に停止されました。
+</pre>
+<h4 id="2-diskpart">2. DISKPART で圧縮</h4>
+<p>PowerShell や Command prompt から以下コマンドで DISKPART を起動</p>
+<pre class="code literal-block">diskpart
+</pre>
+<p>起動したら以下コマンドで仮想ディスクを選択します</p>
+<pre class="code literal-block">DISKPART&gt; <span class="k">select</span> vdisk <span class="nv">file</span><span class="o">=</span><span class="s2">"C:\Users\pemugi\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_xxxxxxxxx\LocalState\ext4.vhdx"</span>
+
+DiskPart により、仮想ディスク ファイルが選択されました。
+</pre>
+<p>そして圧縮します</p>
+<pre class="code literal-block">DISKPART&gt; compact vdisk
+
+  <span class="m">100</span>% 完了しました
+DISKPART&gt; <span class="nb">exit</span>
+</pre>
+<h4 id="3-wsl">3. WSL サービスの再開</h4>
+<p>PowerShell か Command prompt を管理者として実行し、以下コマンドを実行</p>
+<pre class="code literal-block">net start LxssManager
+</pre>
+<h3 id="_6">まとめ</h3>
+<p>DISKPART を使って vhdx を圧縮する方法を紹介しました。<br>
+Webエンジニアやバックエンドエンジニアの開発環境は、ここしばらく Mac が優勢ですが、今後 Windows + WSL2 な人も増えてきそうかな？</p>
+<p>WSL や Docker Desktop for Windows (WSL2) を使ってて、仮想ディスクの容量に困ったら試してみてくださいませ～。</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="welcome-to-chizuwota/" class="u-url">Welcom to chizuwota!!</a></h1>
 
         
         <div class="metadata">
