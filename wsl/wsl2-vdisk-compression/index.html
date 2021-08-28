@@ -8,13 +8,13 @@
 <title>WSL2 の仮想ディスクを圧縮する | chizuwota</title>
 <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS (ja)" hreflang="ja" href="../../../rss.xml">
-<link rel="alternate" type="application/rss+xml" title="RSS (en)" hreflang="en" href="../../../en/rss.xml">
-<link rel="canonical" href="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/">
-<!--[if lt IE 9]><script src="../../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-26157323-5"></script><script>
+<link rel="alternate" type="application/rss+xml" title="RSS (ja)" hreflang="ja" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" hreflang="en" href="../../en/rss.xml">
+<link rel="canonical" href="https://chizuwota.net/wsl/wsl2-vdisk-compression/">
+<!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-26157323-5"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -24,13 +24,15 @@
 <link rel="prev" href="../../welcome-to-chizuwota/" title="Welcom to chizuwota!!" type="text/html">
 <meta property="og:site_name" content="chizuwota">
 <meta property="og:title" content="WSL2 の仮想ディスクを圧縮する">
-<meta property="og:url" content="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/">
+<meta property="og:url" content="https://chizuwota.net/wsl/wsl2-vdisk-compression/">
 <meta property="og:description" content="WSL2 使っていると、気が付いたらハードディスクの容量を圧迫していたなんてことがよくあります。
 仮想マシン上で大きなファイルを作成したり、作業をしているうちに当然仮想ディスクのサイズは大きくなりますが、仮想マシン上でファイルを削除し他場合、仮想ディスク内で df -h などすれば容量が減っていることを確認できるのですが、実は仮想ディスクのファイルそのもののサイズは解放されません。
 ここでは、肥大">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2021-08-26T01:33:36+09:00">
-<link rel="alternate" hreflang="en" href="../../../en/blog/wsl/wsl2-vdisk-compression/">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="WSL2">
+<link rel="alternate" hreflang="en" href="../../en/wsl/wsl2-vdisk-compression/">
 </head>
 <body>
 
@@ -40,7 +42,7 @@
 
 	
 
-    <section id="header"><a href="../../../">
+    <section id="header"><a href="../../">
 			<div class="logo">
 					<div id="nologoimage">
 						chizuwota
@@ -48,7 +50,7 @@
     		</div>
 			</a>
     </section><section id="socialNav"><!-- Navigation Menu - on top on small screens, down the left on larger --><div class="navlinks">
-			<a href="../../../">
+			<a href="../../">
 				<div id="titleauth">
     					chizuwota<br> by PEmugi
 				</div>
@@ -56,25 +58,21 @@
 
             <!-- Navigation links (hidden by default) -->
 			<div id="navmenuitems">
-				            <a href="../../../index.html" title="Home">
+				            <a href="../../index.html" title="Home">
                 <span class="menuitemtext">Home</span>
                 <span class="menuitemicon"><i class="fa fa-home"></i></span>
             </a>
-            <a href="../../../projects/" title="Projects">
-                <span class="menuitemtext">Projects</span>
-                <span class="menuitemicon"><i class="fas fa-globe"></i></span>
-            </a>
-            <a href="../../" title="Blog">
-                <span class="menuitemtext">Blog</span>
-                <span class="menuitemicon"><i class="fa fa-book"></i></span>
-            </a>
-            <a href="../../../archive.html" title="Blog Archives">
-                <span class="menuitemtext">Blog Archives</span>
+            <a href="../../archive.html" title="Archives">
+                <span class="menuitemtext">Archives</span>
                 <span class="menuitemicon"><i class="fa fa-folder-open"></i></span>
             </a>
-            <a href="../../../categories/index.html" title="Blog Tags">
-                <span class="menuitemtext">Blog Tags</span>
+            <a href="../../categories/index.html" title="Tags">
+                <span class="menuitemtext">Tags</span>
                 <span class="menuitemicon"><i class="fa fa-tags"></i></span>
+            </a>
+            <a href="../../pages/projects/" title="Projects">
+                <span class="menuitemtext">Projects</span>
+                <span class="menuitemicon"><i class="fas fa-globe"></i></span>
             </a>
             <a href="https://twitter.com/PEmugi2" title="">
                 <span class="menuitemtext"></span>
@@ -88,7 +86,7 @@
                 <span class="menuitemtext"></span>
                 <span class="menuitemicon"><i class="fab fa-github"></i></span>
             </a>
-            <a href="../../../rss.xml" title="">
+            <a href="../../rss.xml" title="">
                 <span class="menuitemtext"></span>
                 <span class="menuitemicon"><i class="fa fa-rss"></i></span>
             </a>
@@ -117,13 +115,23 @@
 <p class="sourceline"><a href="index.md" class="sourcelink"><i class="fa fa-file-code"></i> ソース</a></p>
 
             
-            
+                <div class="tags">
+<h3 class="metadata-title">
+<i class="fa fa-tags"></i> タグ:</h3>
+        <ul itemprop="keywords" class="tags-ul">
+<li><a class="tag p-category" href="../../categories/windows/" rel="tag">Windows</a></li>
+            <li><a class="tag p-category" href="../../categories/wsl2/" rel="tag">WSL2</a></li>
+        </ul>
+</div>
+
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>WSL2 使っていると、気が付いたらハードディスクの容量を圧迫していたなんてことがよくあります。</p>
 <p>仮想マシン上で大きなファイルを作成したり、作業をしているうちに当然仮想ディスクのサイズは大きくなりますが、仮想マシン上でファイルを削除し他場合、仮想ディスク内で <code>df -h</code> などすれば容量が減っていることを確認できるのですが、実は仮想ディスクのファイルそのもののサイズは解放されません。</p>
 <p>ここでは、肥大化した仮想ディスクのファイルのサイズを解放する方法を紹介します。</p>
+<!-- TEASER_END -->
+
 <h3 id="_1">目次</h3>
 <div class="toc">
 <ul>
@@ -160,9 +168,9 @@
 <p><code>C:\Users\{USERNAME}\AppData\Local\Docker\wsl</code></p>
 </div>
 <h4 id="_3">私の環境の圧縮前のサイズはこんな感じ</h4>
-<p>3.6GB ぐらいでしょうか。<br><img alt="" src="../../../images/posts/wsl/wsl2-vdisk-compression-1.png"></p>
+<p>3.6GB ぐらいでしょうか。<br><img alt="" src="../../images/posts/wsl/wsl2-vdisk-compression-1.png"></p>
 <p><code>df -h</code> の結果は以下なので実際のディスク消費量と 1GB ぐらい差がありそうです。</p>
-<p><img alt="" src="../../../images/posts/wsl/wsl2-vdisk-compression-2.png"></p>
+<p><img alt="" src="../../images/posts/wsl/wsl2-vdisk-compression-2.png"></p>
 <h3 id="_4">仮想ディスクの圧縮</h3>
 <h4 id="1-wsl">1. WSL の停止</h4>
 <p>WSL を止めます。<br>
@@ -210,7 +218,7 @@ Webエンジニアやバックエンドエンジニアの開発環境は、こ�
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="chizuwota",
-            disqus_url="https://chizuwota.net/blog/wsl/wsl2-vdisk-compression/",
+            disqus_url="https://chizuwota.net/wsl/wsl2-vdisk-compression/",
         disqus_title="WSL2 \u306e\u4eee\u60f3\u30c7\u30a3\u30b9\u30af\u3092\u5727\u7e2e\u3059\u308b",
         disqus_identifier="cache/posts/wsl/wsl2-vdisk-compression.html",
         disqus_config = function () {
@@ -230,7 +238,7 @@ Webエンジニアやバックエンドエンジニアの開発環境は、こ�
             
         </footer></article>
 </div>
-	</section><script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+	</section><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
 
     moment.locale("ja");
     fancydates(2, "YYYY-MM-DD HH:mm");
@@ -243,7 +251,7 @@ Webエンジニアやバックエンドエンジニアの開発環境は、こ�
             return element.getElementsByTagName('img')[0].alt;
     }});
 
-	</script><script src="../../../assets/js/ToggleNav.js">
+	</script><script src="../../assets/js/ToggleNav.js">
 	</script>
 </body>
 </html>

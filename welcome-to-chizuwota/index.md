@@ -2,7 +2,7 @@
 .. title: Welcom to chizuwota!!
 .. slug: welcome-to-chizuwota
 .. date: 2021-08-22 22:58:43 UTC+09:00
-.. tags:
+.. tags: Announcement
 .. category: 
 .. link: 
 .. description: 
@@ -18,6 +18,8 @@
 地図オタクとよべるほどの人間ではないけれど、それ以外に取り柄もないし。
 
 あと chizuwota.net というドメインは学生時代の2006年から使っていて愛着があったのでそのまま屋号として採用。
+
+<!-- TEASER_END -->
 
 ## 情報発信で恩返し
 
