@@ -1447,6 +1447,10 @@ address
 	color: white;
 }
 
+#header .logo img {
+	padding-bottom: 0.2em;
+}
+
 #header a:hover,
 #header a:focus
 {
