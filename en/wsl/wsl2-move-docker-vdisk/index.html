@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html prefix="
+        og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+    " vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docker Desktop for Windows のデータを別のドライブに移動する | chizuwota</title>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" hreflang="en" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (ja)" hreflang="ja" href="../../../rss.xml">
+<link rel="canonical" href="https://chizuwota.net/en/wsl/wsl2-move-docker-vdisk/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-26157323-5"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-26157323-5');
+</script><meta name="author" content="PEmugi">
+<link rel="prev" href="../wsl2-vdisk-compression/" title="WSL2 の仮想ディスクを圧縮する" type="text/html">
+<meta property="og:site_name" content="chizuwota">
+<meta property="og:title" content="Docker Desktop for Windows のデータを別のドライブに移動する">
+<meta property="og:url" content="https://chizuwota.net/en/wsl/wsl2-move-docker-vdisk/">
+<meta property="og:description" content="WSL2 と連携させて Docker Desktop for Windows を使用していますが、RDBMS のコンテナなどを使用していると、結構な頻度で IO が発生します。
+なので、なるべくシステムディスクとは分けておきたいのですが、Docker Desktop for Windows 用の WSL はデフォルトだとシステムディスク上に作成されます。
+ここでは、Docker Desktop f">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-09-05T01:44:16+09:00">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="WSL2">
+<link rel="alternate" hreflang="ja" href="../../../wsl/wsl2-move-docker-vdisk/">
+</head>
+<body>
+
+	<a href="#page-content" class="sr-only sr-only-focusable">
+		Skip to main content
+	</a>
+
+	
+
+    <section id="header"><a href="../../../">
+			<div class="logo">
+					<img src="../../../images/logo_s.png" alt="chizuwota" id="logo">
+</div>
+			</a>
+    </section><section id="socialNav"><!-- Navigation Menu - on top on small screens, down the left on larger --><div class="navlinks">
+			<a href="../../../">
+				<div id="titleauth">
+    					chizuwota<br> by PEmugi
+				</div>
+			</a>
+
+            <!-- Navigation links (hidden by default) -->
+			<div id="navmenuitems">
+				            <a href="../../../index.html" title="Home">
+                <span class="menuitemtext">Home</span>
+                <span class="menuitemicon"><i class="fa fa-home"></i></span>
+            </a>
+            <a href="../../../archive.html" title="Archives">
+                <span class="menuitemtext">Archives</span>
+                <span class="menuitemicon"><i class="fa fa-folder-open"></i></span>
+            </a>
+            <a href="../../../categories/index.html" title="Tags">
+                <span class="menuitemtext">Tags</span>
+                <span class="menuitemicon"><i class="fa fa-tags"></i></span>
+            </a>
+            <a href="../../../pages/projects/" title="Projects">
+                <span class="menuitemtext">Projects</span>
+                <span class="menuitemicon"><i class="fas fa-globe"></i></span>
+            </a>
+            <a href="https://twitter.com/PEmugi2" title="">
+                <span class="menuitemtext"></span>
+                <span class="menuitemicon"><i class="fab fa-twitter"></i></span>
+            </a>
+            <a href="https://www.linkedin.com/in/shimpei-matsuura-26974441/" title="">
+                <span class="menuitemtext"></span>
+                <span class="menuitemicon"><i class="fab fa-linkedin"></i></span>
+            </a>
+            <a href="https://github.com/PEmugi" title="">
+                <span class="menuitemtext"></span>
+                <span class="menuitemicon"><i class="fab fa-github"></i></span>
+            </a>
+            <a href="../../../rss.xml" title="">
+                <span class="menuitemtext"></span>
+                <span class="menuitemicon"><i class="fa fa-rss"></i></span>
+            </a>
+    
+    
+
+			</div>
+
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+			<a href="javascript:void(0);" id="hamburger" class="icon" onclick="toggleNav()">
+				<i class="fa fa-bars">
+				</i>
+			</a>
+		</div>
+
+	</section><section class="page-content"><div class="content" rel="main">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Docker Desktop for Windows のデータを別のドライブに移動する</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-09-05T01:44:16+09:00" itemprop="datePublished" title="2021-09-05 01:44">2021-09-05 01:44</time></a></p>
+
+                <p class="commentline"><i class="far fa-comment"></i>            <a href="#disqus_thread" data-disqus-identifier="cache/posts/wsl/wsl2-move-docker-vdisk.html">Comments</a>
+
+
+                    </p>
+<p class="sourceline"><a href="index.rst" class="sourcelink"><i class="fa fa-file-code"></i> Source</a></p>
+
+            
+                <div class="tags">
+<h3 class="metadata-title">
+<i class="fa fa-tags"></i> Tags:</h3>
+        <ul itemprop="keywords" class="tags-ul">
+<li><a class="tag p-category" href="../../categories/docker/" rel="tag">Docker</a></li>
+            <li><a class="tag p-category" href="../../categories/windows/" rel="tag">Windows</a></li>
+            <li><a class="tag p-category" href="../../categories/wsl2/" rel="tag">WSL2</a></li>
+        </ul>
+</div>
+
+        </div>
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="line-block">
+<div class="line">WSL2 と連携させて Docker Desktop for Windows を使用していますが、RDBMS のコンテナなどを使用していると、結構な頻度で IO が発生します。</div>
+<div class="line">なので、なるべくシステムディスクとは分けておきたいのですが、Docker Desktop for Windows 用の WSL はデフォルトだとシステムディスク上に作成されます。</div>
+<div class="line">ここでは、Docker Desktop for Windows のデータ格納用の WSL である docker-desktop-data をほかのドライブに移動する方法を紹介します。</div>
+</div>
+<!-- TEASER_END -->
+<div class="contents topic" id="id1">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#docker-desktop-for-windows-wsl" id="id5">Docker Desktop for Windows の WSL</a></p></li>
+<li>
+<p><a class="reference internal" href="#docker-desktop-data" id="id6">docker-desktop-data の移動</a></p>
+<ul>
+<li><p><a class="reference internal" href="#wsl" id="id7">1. WSL の停止</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id8">2. docker-desktop-data のエクスポート</a></p></li>
+<li><p><a class="reference internal" href="#docker-desktop-data-wsl" id="id9">3. docker-desktop-data を WSL から削除</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id10">4. docker-desktop-data を再インポート</a></p></li>
+<li><p><a class="reference internal" href="#docker-desktop" id="id11">5. Docker Desktop の起動</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id4" id="id12">おわり</a></p></li>
+</ul>
+</div>
+<section id="docker-desktop-for-windows-wsl"><h2><a class="toc-backref" href="#id5">Docker Desktop for Windows の WSL</a></h2>
+<p>Docker Desktop for Windows をインストールすると以下2つのWSL2ディストリビューションが作られます。</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>docker-desktop</dt>
+<dd>
+<p>Docker 関連のサービスを実行しているディストリビューション</p>
+</dd>
+</dl></li>
+<li><dl class="simple">
+<dt>docker-desktop-data</dt>
+<dd>
+<p>コンテナイメージやボリュームなどのデータを格納しているディストリビューション</p>
+</dd>
+</dl></li>
+</ul>
+<div class="line-block">
+<div class="line">RDBMS などを運用していると、docker-desktop-data 内のボリュームに対して IO が発生するわけです。</div>
+<div class="line">別ドライブのディレクトリを bind mount すれば IO を別ディスクに逃がせますが、WSL2 から Windows のファイルシステムに対する IO 性能はあまり出ないようです。実際遅かった。</div>
+</div>
+</section><section id="docker-desktop-data"><h2><a class="toc-backref" href="#id6">docker-desktop-data の移動</a></h2>
+<p>というわけで docker-desktop-data を別のドライブに移動していきましょう。</p>
+<p>docker-desktop-data の仮想ディスク(.vhdx) はデフォルトでは以下に配置されます。</p>
+<pre class="literal-block">%LOCALAPPDATA%\Local\Docker\wsl\data\ext4.vhdx</pre>
+<p>これを D: の適当なディレクトリに移動していきます。</p>
+<section id="wsl"><h3><a class="toc-backref" href="#id7">1. WSL の停止</a></h3>
+<p>WSL が稼働していると移動できないので、まずは WSL を止めます。</p>
+<p>PowerShell か CMD で以下実行</p>
+<pre class="code bash"><a id="rest_code_e1ea440fec914da4af73537303f73daa-1" name="rest_code_e1ea440fec914da4af73537303f73daa-1"></a>wsl --shutdown
+</pre></section><section id="id2"><h3><a class="toc-backref" href="#id8">2. docker-desktop-data のエクスポート</a></h3>
+<p>ディストリビューションを tar アーカイブにエクスポートします。</p>
+<p>再びインポートしたら不要なので、適当な場所に出力して ok 。</p>
+<p>PowerShell か　CMD で以下実行</p>
+<pre class="code bash"><a id="rest_code_d624969131d24d26954c126aa0b4588d-1" name="rest_code_d624969131d24d26954c126aa0b4588d-1"></a>wsl --export docker-desktop-data D:<span class="se">\w</span>sl<span class="se">\d</span>ocker-desktop<span class="se">\d</span>ocker-desktop-data.tar
+</pre></section><section id="docker-desktop-data-wsl"><h3><a class="toc-backref" href="#id9">3. docker-desktop-data を WSL から削除</a></h3>
+<p>既存の docker-desktop-data を削除します。この時点でシステムディスク上の仮想イメージ(ext4.vhdx)は削除されます。</p>
+<p>PowerShell か　CMD で以下実行</p>
+<pre class="code bash"><a id="rest_code_21b6efe113b74e70a37f09936bac3ade-1" name="rest_code_21b6efe113b74e70a37f09936bac3ade-1"></a>wsl --unregister docker-desktop-data
+</pre></section><section id="id3"><h3><a class="toc-backref" href="#id10">4. docker-desktop-data を再インポート</a></h3>
+<div class="line-block">
+<div class="line">2 の手順でエクスポートした tar を指定して、再度 WSL に docker-desktop-data を登録します。</div>
+<div class="line">格納先に D: 以下のディレクトリを指定します。</div>
+<div class="line">version 指定を忘れないように</div>
+</div>
+<p>PowerShell か　CMD で以下実行</p>
+<pre class="code bash"><a id="rest_code_7067b4b1bb4d416f96f8d6cb993d2b0f-1" name="rest_code_7067b4b1bb4d416f96f8d6cb993d2b0f-1"></a>wsl --import docker-desktop-data D:<span class="se">\w</span>sl<span class="se">\d</span>ocker-desktop<span class="se">\d</span>ata D:<span class="se">\w</span>sl<span class="se">\d</span>ocker-desktop<span class="se">\d</span>ocker-desktop-data.tar --version <span class="m">2</span>
+</pre></section><section id="docker-desktop"><h3><a class="toc-backref" href="#id11">5. Docker Desktop の起動</a></h3>
+<p>Docker Desktop を再起動して作業は終わりです。</p>
+<p>2 で出力した tar は削除してかまいません。</p>
+</section></section><section id="id4"><h2><a class="toc-backref" href="#id12">おわり</a></h2>
+<p>Docker による IO やシステムディスク容量への圧迫が気になる人は試してみてくださいねー。</p>
+<p>全然 GIS のこと書いてねぇな...</p>
+</section>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../wsl2-vdisk-compression/" rel="prev" title="WSL2 の仮想ディスクを圧縮する">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chizuwota",
+            disqus_url="https://chizuwota.net/en/wsl/wsl2-move-docker-vdisk/",
+        disqus_title="Docker Desktop for Windows \u306e\u30c7\u30fc\u30bf\u3092\u5225\u306e\u30c9\u30e9\u30a4\u30d6\u306b\u79fb\u52d5\u3059\u308b",
+        disqus_identifier="cache/posts/wsl/wsl2-move-docker-vdisk.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script>var disqus_shortname="chizuwota";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021         <a href="mailto:PEmugi@chizuwota.net">PEmugi</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer></article>
+</div>
+	</section><script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+
+    moment.locale("en");
+    fancydates(2, "YYYY-MM-DD HH:mm");
+
+	</script><!-- end fancy dates --><script>
+
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+
+	</script><script src="../../../assets/js/ToggleNav.js">
+	</script>
+</body>
+</html>

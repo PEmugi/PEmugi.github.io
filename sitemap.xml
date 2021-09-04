@@ -15,15 +15,19 @@
  </url>
  <url>
   <loc>https://chizuwota.net/archive.html</loc>
-  <lastmod>2021-08-29T15:24:00Z</lastmod>
+  <lastmod>2021-09-04T16:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/</loc>
-  <lastmod>2021-08-28T09:07:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/announcement/</loc>
   <lastmod>2021-08-28T09:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/categories/docker/</loc>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/windows/</loc>
@@ -43,15 +47,19 @@
  </url>
  <url>
   <loc>https://chizuwota.net/en/archive.html</loc>
-  <lastmod>2021-08-29T15:24:00Z</lastmod>
+  <lastmod>2021-09-04T16:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/</loc>
-  <lastmod>2021-08-28T09:07:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/announcement/</loc>
   <lastmod>2021-08-28T09:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/categories/docker/</loc>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/windows/</loc>
@@ -71,6 +79,11 @@
   <lastmod>2021-08-28T09:30:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chizuwota.net/en/wsl/wsl2-move-docker-vdisk/</loc>
+  <lastmod>2021-09-04T16:44:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/wsl/wsl2-move-docker-vdisk/" />
+ </url>
+ <url>
   <loc>https://chizuwota.net/en/wsl/wsl2-vdisk-compression/</loc>
   <lastmod>2021-08-28T09:30:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/wsl/wsl2-vdisk-compression/" />
@@ -86,6 +99,10 @@
  <url>
   <loc>https://chizuwota.net/welcome-to-chizuwota/</loc>
   <lastmod>2021-08-28T09:30:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/wsl/wsl2-move-docker-vdisk/</loc>
+  <lastmod>2021-09-04T16:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/wsl/wsl2-vdisk-compression/</loc>

@@ -10,35 +10,43 @@
   <lastmod>2021-08-28T09:08:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://chizuwota.net/categories/docker.xml</loc>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://chizuwota.net/categories/windows.xml</loc>
-  <lastmod>2021-08-28T09:06:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/categories/wsl2.xml</loc>
-  <lastmod>2021-08-28T09:06:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/en/categories/announcement.xml</loc>
   <lastmod>2021-08-28T09:08:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://chizuwota.net/en/categories/docker.xml</loc>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://chizuwota.net/en/categories/windows.xml</loc>
-  <lastmod>2021-08-28T09:06:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/en/categories/wsl2.xml</loc>
-  <lastmod>2021-08-28T09:06:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/en/rss.xml</loc>
-  <lastmod>2021-08-28T14:29:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/rss.xml</loc>
-  <lastmod>2021-08-28T14:29:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/sitemap.xml</loc>
-  <lastmod>2021-08-29T15:24:00Z</lastmod>
+  <lastmod>2021-09-04T16:47:00Z</lastmod>
  </sitemap>
 </sitemapindex>
