@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html prefix="
         og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+            fb: http://ogp.me/ns/fb#
     " vocab="http://ogp.me/ns" lang="ja">
 <head>
 <meta charset="utf-8">
@@ -14,6 +15,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (ja)" hreflang="ja" href="../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" hreflang="en" href="../../en/rss.xml">
 <link rel="canonical" href="https://chizuwota.net/wsl/wsl2-move-docker-vdisk/">
+<meta property="fb:app_id" content="chizuwota">
 <!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-26157323-5"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -107,11 +109,10 @@
         <div class="metadata">
             <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-09-05T01:44:16+09:00" itemprop="datePublished" title="2021-09-05 01:44">2021-09-05 01:44</time></a></p>
 
-                <p class="commentline"><i class="far fa-comment"></i>            <a href="#disqus_thread" data-disqus-identifier="cache/posts/wsl/wsl2-move-docker-vdisk.html">コメント</a>
+                <p class="commentline"><i class="far fa-comment"></i>        <span class="fb-comments-count" data-url="/wsl/wsl2-move-docker-vdisk/">
 
 
-                    </p>
-<p class="sourceline"><a href="index.rst" class="sourcelink"><i class="fa fa-file-code"></i> ソース</a></p>
+                    <p class="sourceline"><a href="index.rst" class="sourcelink"><i class="fa fa-file-code"></i> ソース</a></p>
 
             
                 <div class="tags">
@@ -124,7 +125,8 @@
         </ul>
 </div>
 
-        </div>
+        </span></p>
+</div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <div class="line-block">
@@ -210,26 +212,58 @@
                 <a href="../wsl2-vdisk-compression/" rel="prev" title="WSL2 の仮想ディスクを圧縮する">一つ前の記事</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>コメント</h2>
-                        <div id="disqus_thread"></div>
-        <script>
-        var disqus_shortname ="chizuwota",
-            disqus_url="https://chizuwota.net/wsl/wsl2-move-docker-vdisk/",
-        disqus_title="Docker Desktop for Windows \u306e\u30c7\u30fc\u30bf\u3092\u5225\u306e\u30c9\u30e9\u30a4\u30d6\u306b\u79fb\u52d5\u3059\u308b",
-        disqus_identifier="cache/posts/wsl/wsl2-move-docker-vdisk.html",
-        disqus_config = function () {
-            this.language = "ja";
-        };
-        (function() {
-            var dsq = document.createElement('script'); dsq.async = true;
-            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
-</noscript>
-    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+                <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : 'chizuwota',
+      status     : true,
+      xfbml      : true
+    });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script><div class="fb-comments" data-href="https://chizuwota.net/wsl/wsl2-move-docker-vdisk/" data-width="470"></div>
 
 
-        </section><script>var disqus_shortname="chizuwota";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021         <a href="mailto:PEmugi@chizuwota.net">PEmugi</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+        </section><div id="fb-root"></div>
+<script>
+    // thank lxml for this
+    $('.fb-comments-count').each(function(i, obj) {
+        var url = obj.attributes['data-url'].value;
+        // change here if you dislike the default way of displaying
+        // this
+        obj.innerHTML = '<fb:comments-count href="' + url + '"></fb:comments-count> comments';
+    });
+
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : 'chizuwota',
+      status     : true,
+      xfbml      : true
+    });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script><footer id="footer"><p>Contents © 2021         <a href="mailto:PEmugi@chizuwota.net">PEmugi</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
             
         </footer></article>
 </div>

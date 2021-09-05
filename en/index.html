@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html prefix="
         og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+            fb: http://ogp.me/ns/fb#
     " vocab="http://ogp.me/ns" lang="en">
 <head>
 <meta charset="utf-8">
@@ -15,6 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" hreflang="en" href="rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (ja)" hreflang="ja" href="../rss.xml">
 <link rel="canonical" href="https://chizuwota.net/en/">
+<meta property="fb:app_id" content="chizuwota">
 <!--[if lt IE 9]><script src="../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-26157323-5"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -99,10 +101,10 @@
         <div class="metadata">
             <p class="dateline"><a href="wsl/wsl2-move-docker-vdisk/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-09-05T01:44:16+09:00" title="2021-09-05 01:44">2021-09-05 01:44</time></a></p>
 
-                <p class="commentline"><i class="fa fa-comment"></i>             <a href="wsl/wsl2-move-docker-vdisk/#disqus_thread" data-disqus-identifier="cache/posts/wsl/wsl2-move-docker-vdisk.html">Comments</a>
+                <p class="commentline"><i class="fa fa-comment"></i>         <span class="fb-comments-count" data-url="/en/wsl/wsl2-move-docker-vdisk/">
 
 
-        </p>
+        </span></p>
 </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -120,10 +122,10 @@
         <div class="metadata">
             <p class="dateline"><a href="wsl/wsl2-vdisk-compression/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-08-26T01:33:36+09:00" title="2021-08-26 01:33">2021-08-26 01:33</time></a></p>
 
-                <p class="commentline"><i class="fa fa-comment"></i>             <a href="wsl/wsl2-vdisk-compression/#disqus_thread" data-disqus-identifier="cache/posts/wsl/wsl2-vdisk-compression.html">Comments</a>
+                <p class="commentline"><i class="fa fa-comment"></i>         <span class="fb-comments-count" data-url="/en/wsl/wsl2-vdisk-compression/">
 
 
-        </p>
+        </span></p>
 </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -139,10 +141,10 @@
         <div class="metadata">
             <p class="dateline"><a href="welcome-to-chizuwota/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-08-22T22:58:43+09:00" title="2021-08-22 22:58">2021-08-22 22:58</time></a></p>
 
-                <p class="commentline"><i class="fa fa-comment"></i>             <a href="welcome-to-chizuwota/#disqus_thread" data-disqus-identifier="cache/posts/welcome-to-chizuwota.html">Comments</a>
+                <p class="commentline"><i class="fa fa-comment"></i>         <span class="fb-comments-count" data-url="/en/welcome-to-chizuwota/">
 
 
-        </p>
+        </span></p>
 </div>
     </header><div class="p-summary entry-summary">
     <div>
@@ -157,7 +159,35 @@
     </article>
 </div>
 
-               <script>var disqus_shortname="chizuwota";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021         <a href="mailto:PEmugi@chizuwota.net">PEmugi</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+        <div id="fb-root"></div>
+<script>
+    // thank lxml for this
+    $('.fb-comments-count').each(function(i, obj) {
+        var url = obj.attributes['data-url'].value;
+        // change here if you dislike the default way of displaying
+        // this
+        obj.innerHTML = '<fb:comments-count href="' + url + '"></fb:comments-count> comments';
+    });
+
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : 'chizuwota',
+      status     : true,
+      xfbml      : true
+    });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script><footer id="footer"><p>Contents © 2021         <a href="mailto:PEmugi@chizuwota.net">PEmugi</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
             
         </footer>
 </div>
