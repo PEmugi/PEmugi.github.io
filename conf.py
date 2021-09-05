@@ -1300,7 +1300,10 @@ EXTRA_HEAD_DATA = """
 # Google Analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
 # (translatable)
-# BODY_END = ""
+BODY_END = """
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6134d2023432103c"></script>
+"""
 
 # The possibility to extract metadata from the filename by using a
 # regular expression.
