@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://chizuwota.net/</loc>
-  <lastmod>2021-08-28T14:51:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/2021/</loc>
@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>https://chizuwota.net/archive.html</loc>
-  <lastmod>2021-09-05T14:46:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/</loc>
-  <lastmod>2021-09-04T16:47:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/announcement/</loc>
@@ -28,6 +28,14 @@
  <url>
   <loc>https://chizuwota.net/categories/docker/</loc>
   <lastmod>2021-09-04T16:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/categories/gis/</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/categories/qgis/</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/windows/</loc>
@@ -39,7 +47,7 @@
  </url>
  <url>
   <loc>https://chizuwota.net/en/</loc>
-  <lastmod>2021-08-28T14:43:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/2021/</loc>
@@ -47,11 +55,11 @@
  </url>
  <url>
   <loc>https://chizuwota.net/en/archive.html</loc>
-  <lastmod>2021-09-05T14:46:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/</loc>
-  <lastmod>2021-09-04T16:47:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/announcement/</loc>
@@ -62,12 +70,25 @@
   <lastmod>2021-09-04T16:47:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chizuwota.net/en/categories/gis/</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/categories/qgis/</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chizuwota.net/en/categories/windows/</loc>
   <lastmod>2021-08-28T09:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/wsl2/</loc>
   <lastmod>2021-08-28T09:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/en/gis/area-selection/</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/gis/area-selection/" />
  </url>
  <url>
   <loc>https://chizuwota.net/en/pages/projects/</loc>
@@ -87,6 +108,10 @@
   <loc>https://chizuwota.net/en/wsl/wsl2-vdisk-compression/</loc>
   <lastmod>2021-08-28T09:30:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/wsl/wsl2-vdisk-compression/" />
+ </url>
+ <url>
+  <loc>https://chizuwota.net/gis/area-selection/</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/listings/</loc>

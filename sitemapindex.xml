@@ -14,6 +14,14 @@
   <lastmod>2021-09-04T17:37:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://chizuwota.net/categories/gis.xml</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chizuwota.net/categories/qgis.xml</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://chizuwota.net/categories/windows.xml</loc>
   <lastmod>2021-09-04T17:37:00Z</lastmod>
  </sitemap>
@@ -30,6 +38,14 @@
   <lastmod>2021-09-04T17:37:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://chizuwota.net/en/categories/gis.xml</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chizuwota.net/en/categories/qgis.xml</loc>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://chizuwota.net/en/categories/windows.xml</loc>
   <lastmod>2021-09-04T17:37:00Z</lastmod>
  </sitemap>
@@ -39,14 +55,14 @@
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/en/rss.xml</loc>
-  <lastmod>2021-09-04T17:37:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/rss.xml</loc>
-  <lastmod>2021-09-04T17:37:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chizuwota.net/sitemap.xml</loc>
-  <lastmod>2021-09-05T14:46:00Z</lastmod>
+  <lastmod>2021-09-18T11:59:00Z</lastmod>
  </sitemap>
 </sitemapindex>
