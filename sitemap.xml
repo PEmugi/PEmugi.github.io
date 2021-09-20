@@ -15,7 +15,7 @@
  </url>
  <url>
   <loc>https://chizuwota.net/archive.html</loc>
-  <lastmod>2021-09-19T10:11:00Z</lastmod>
+  <lastmod>2021-09-20T06:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/categories/</loc>
@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://chizuwota.net/en/archive.html</loc>
-  <lastmod>2021-09-19T10:11:00Z</lastmod>
+  <lastmod>2021-09-20T06:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/en/categories/</loc>
@@ -91,6 +91,11 @@
   <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/gis/area-selection/" />
  </url>
  <url>
+  <loc>https://chizuwota.net/en/gis/create-scratch-layer-from-selection/</loc>
+  <lastmod>2021-09-20T06:32:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/gis/create-scratch-layer-from-selection/" />
+ </url>
+ <url>
   <loc>https://chizuwota.net/en/gis/delete-holes/</loc>
   <lastmod>2021-09-19T10:11:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="ja" href="https://chizuwota.net/gis/delete-holes/" />
@@ -117,6 +122,10 @@
  <url>
   <loc>https://chizuwota.net/gis/area-selection/</loc>
   <lastmod>2021-09-18T11:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chizuwota.net/gis/create-scratch-layer-from-selection/</loc>
+  <lastmod>2021-09-20T06:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://chizuwota.net/gis/delete-holes/</loc>

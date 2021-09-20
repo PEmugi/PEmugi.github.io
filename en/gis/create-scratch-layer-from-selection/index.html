@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[QGIS] 小さいポリゴンを削除する | chizuwota</title>
+<title>[QGIS] コピーしたフィーチャを新しいスクラッチレイヤに貼り付ける | chizuwota</title>
 <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -13,7 +13,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" hreflang="en" href="../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (ja)" hreflang="ja" href="../../../rss.xml">
-<link rel="canonical" href="https://chizuwota.net/en/gis/area-selection/">
+<link rel="canonical" href="https://chizuwota.net/en/gis/create-scratch-layer-from-selection/">
 <!--[if lt IE 9]><script src="../../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-26157323-5"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -21,39 +21,40 @@
 
   gtag('config', 'UA-26157323-5');
 </script><meta name="author" content="PEmugi">
-<link rel="prev" href="../../wsl/wsl2-move-docker-vdisk/" title="Docker Desktop for Windows のデータを別のドライブに移動する" type="text/html">
-<link rel="next" href="../delete-holes/" title="ポリゴンの小さい穴や隙間を削除する" type="text/html">
+<link rel="prev" href="../delete-holes/" title="ポリゴンの小さい穴や隙間を削除する" type="text/html">
 <meta property="og:site_name" content="chizuwota">
-<meta property="og:title" content="[QGIS] 小さいポリゴンを削除する">
-<meta property="og:url" content="https://chizuwota.net/en/gis/area-selection/">
+<meta property="og:title" content="[QGIS] コピーしたフィーチャを新しいスクラッチレイヤに貼り付ける">
+<meta property="og:url" content="https://chizuwota.net/en/gis/create-scratch-layer-from-selection/">
 <meta property="og:description" content="はじめに
-ポリゴンデータを扱っていると、微小なポリゴンを削除してきれいにしたい時ありますよね。
-QGIS で微小なポリゴンを削除する方法を紹介しますぅ。
-
-
-目次
+既存のレイヤの特定のフィーチャをコピーして新しいレイヤを作りたい場合がありますよね。
+そんな場面に役立つ Tips です。
 
 
 はじめに
-目次
 手順
-1. 編集モードにする
-2. 式による選択ツールで特定面積より小さいポリゴンを選択
-3. 削除して保存
 
 
-まとめ
 
 
 手順
-1. 編集モードにする
-対象のポリゴンレイヤを編集モードにします。
-このマークをクリ">
+
+
+フィーチャを選択
+属性値でも、空間的関係でもいいので目的のフィーチャを選択します。
+
+
+コピーする
+[編集] --&gt; [地物のコピー] で選択したフィーチャをコピーします。
+
+
+
+新しいレイヤに貼り付ける
+[編集] --&gt; [新">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2021-09-18T20:55:46+09:00">
+<meta property="article:published_time" content="2021-09-20T15:29:33+09:00">
 <meta property="article:tag" content="GIS">
 <meta property="article:tag" content="QGIS">
-<link rel="alternate" hreflang="ja" href="../../../gis/area-selection/">
+<link rel="alternate" hreflang="ja" href="../../../gis/create-scratch-layer-from-selection/">
 </head>
 <body>
 
@@ -124,10 +125,10 @@ QGIS で微小なポリゴンを削除する方法を紹介しますぅ。
 	</section><section class="page-content"><div class="content" rel="main">
 			<!-- Go to www.addthis.com/dashboard to customize your tools -->
 			<div class="addthis_inline_share_toolbox"></div>
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">[QGIS] 小さいポリゴンを削除する</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">[QGIS] コピーしたフィーチャを新しいスクラッチレイヤに貼り付ける</a></h1>
 
         <div class="metadata">
-            <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-09-18T20:55:46+09:00" itemprop="datePublished" title="2021-09-18 20:55">2021-09-18 20:55</time></a></p>
+            <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-09-20T15:29:33+09:00" itemprop="datePublished" title="2021-09-20 15:29">2021-09-20 15:29</time></a></p>
 
                     <p class="sourceline"><a href="index.md" class="sourcelink"><i class="fa fa-file-code"></i> Source</a></p>
 
@@ -145,62 +146,41 @@ QGIS で微小なポリゴンを削除する方法を紹介しますぅ。
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <h2 id="_1">はじめに</h2>
-<p>ポリゴンデータを扱っていると、微小なポリゴンを削除してきれいにしたい時ありますよね。<br>
-QGIS で微小なポリゴンを削除する方法を紹介しますぅ。</p>
-<!-- TEASER_END -->
-
-<h2 id="_2">目次</h2>
+<p>既存のレイヤの特定のフィーチャをコピーして新しいレイヤを作りたい場合がありますよね。</p>
+<p>そんな場面に役立つ Tips です。</p>
 <div class="toc">
 <ul>
 <li><a href="#_1">はじめに</a></li>
-<li><a href="#_2">目次</a></li>
-<li>
-<a href="#_3">手順</a><ul>
-<li><a href="#1">1. 編集モードにする</a></li>
-<li><a href="#2">2. 式による選択ツールで特定面積より小さいポリゴンを選択</a></li>
-<li><a href="#3">3. 削除して保存</a></li>
-</ul>
-</li>
-<li><a href="#_4">まとめ</a></li>
+<li><a href="#_2">手順</a></li>
 </ul>
 </div>
-<h2 id="_3">手順</h2>
-<h3 id="1">1. 編集モードにする</h3>
-<p>対象のポリゴンレイヤを編集モードにします。<br>
-このマークをクリックで編集モードになりますね。</p>
-<p><img alt="編集開始ボタン" src="../../../images/posts/gis/qgis-paste-button.png"></p>
-<h3 id="2">2. 式による選択ツールで特定面積より小さいポリゴンを選択</h3>
+<!-- TEASER_END -->
+
+<h2 id="_2">手順</h2>
 <ol>
 <li>
-<p>式による選択ツールを開く</p>
-<p>ここ</p>
-<p><img alt="式による選択ツール" src="../../images/posts/gis/qgis-select-by-expression.png"></p>
+<p>フィーチャを選択</p>
+<p>属性値でも、空間的関係でもいいので目的のフィーチャを選択します。</p>
 </li>
 <li>
-<p>指定面積より小さいポリゴンを選択する</p>
-<p><code>$area &lt; 50000</code></p>
-<p><code>$area</code> はフィーチャの面積を返します。<br>
-この時の面積は、座標系が回転楕円体上での面積で、単位はプロジェクトで指定された単位になります。<br>
-下の例では平方メートルです。</p>
-<p><img alt="式による選択ウィンドウ" src="../../images/posts/gis/qgis-select-by-expression-window.png"></p>
-<p>ウィンドウの「地物を選択」をクリックすると条件で指定した面積より小さいポリゴンが選択されます。</p>
-<p><img alt="選択されたポリゴン" src="../../images/posts/gis/qgis-selected-polygon-features.png"></p>
+<p>コピーする</p>
+<p>[編集] --&gt; [地物のコピー] で選択したフィーチャをコピーします。<br><img alt="地物のコピー" src="../../images/posts/gis/qgis-copy-feature-menu.png"></p>
+</li>
+<li>
+<p>新しいレイヤに貼り付ける</p>
+<p>[編集] --&gt; [新規レイヤへの地物貼り付け] --&gt; [一時スクラッチレイヤ] で新しいスクラッチレイヤを作って貼り付けます。</p>
+<p>レイヤ名の入力ダイアログが出るので適当に名前をつければ完成</p>
+<p>ちなみに <code>Ctrl + Alt + v</code> (Macは<code>Ctrl + Command + v</code>かな？) でも新規レイヤに貼り付けができます。</p>
+<p><img alt="新規レイヤへの貼り付け" src="../../images/posts/gis/qgis-paste-features-as-new-layer-menu.png"></p>
 </li>
 </ol>
-<h3 id="3">3. 削除して保存</h3>
-<p>後は、DELETEキーを押せば選択されたフィーチャが削除されます。
-そして忘れずに保存しましょう。</p>
-<h2 id="_4">まとめ</h2>
-<p>ほかにも元のレイヤを編集せずに条件式でフィーチャを抽出して別レイヤとして書き出す <strong>[QGIS式による抽出]</strong> ツールもあります。<br><img alt="抽出ツール" src="../../images/posts/gis/qgis-extract-by-expression-menu.png"><br>
-新しくレイヤを作りたいならこちらのが楽だね(もちろん条件式は逆で指定値以上を抽出する式になる)。</p>
+<p>どうでもいいけど、地物とかフィーチャって独特な言い回しだよねー。<br>
+当たり前のように使って、？？？な反応を受けることが多い。</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul class="pager hidden-print">
 <li class="previous">
-                <a href="../../wsl/wsl2-move-docker-vdisk/" rel="prev" title="Docker Desktop for Windows のデータを別のドライブに移動する">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../delete-holes/" rel="next" title="ポリゴンの小さい穴や隙間を削除する">Next post</a>
+                <a href="../delete-holes/" rel="prev" title="ポリゴンの小さい穴や隙間を削除する">Previous post</a>
             </li>
         </ul></nav></aside><footer id="footer"><p>Contents © 2021         <a href="mailto:PEmugi@chizuwota.net">PEmugi</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
             

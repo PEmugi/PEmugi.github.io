@@ -1,5 +1,5 @@
 <!--
-.. title: QGISで小さいポリゴンを削除する
+.. title: [QGIS] 小さいポリゴンを削除する
 .. slug: area-selection
 .. date: 2021-09-18 20:55:46 UTC+09:00
 .. tags: QGIS, GIS
