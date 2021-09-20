@@ -1,4 +1,4 @@
-.. title: ポリゴンの小さい穴や隙間を削除する
+.. title: [QGIS] ポリゴンの小さい穴や隙間を削除する
 .. slug: delete-holes
 .. date: 2021-09-19 18:53:30 UTC+09:00
 .. tags: GIS, QGIS
