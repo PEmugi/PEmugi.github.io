@@ -2,7 +2,7 @@
 .. title: ノートPCのCPUグリスを塗りなおしてみた
 .. slug: cpu-grease-laptop
 .. date: 2021-09-26 02:10:53 UTC+09:00
-.. tags: 
+.. tags: hardware,cpu
 .. category: 
 .. link: 
 .. description: 
